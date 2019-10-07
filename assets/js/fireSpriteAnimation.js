@@ -62,7 +62,7 @@
 				       tickCount = 0;
 
                 // If the current frame index is in range
-                if (frameIndex < numberOfFrames - 1) {
+                if (frameIndex < numberOfFrames) {
                     // Go to the next frame
                     frameIndex += 1;
                 }

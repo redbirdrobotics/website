@@ -1,3 +1,8 @@
 body{
   background-color:#2c2c2c;
 }
+.containter-canvas{
+  margin-right: auto;
+  margin-left: auto;
+  width: 720px;
+}
