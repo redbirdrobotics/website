@@ -165,7 +165,7 @@
     height: 720,
     image: fireImage,
     numberOfFrames: 24,
-    ticksPerFrame: 1
+    ticksPerFrame: 2
   });
 
   //Load sprite sheet
