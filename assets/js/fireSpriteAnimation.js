@@ -233,9 +233,9 @@
 	}
 
   // Get canvas
-  canvas = document.getElementById("fireAnimation");
-  canvas.width = 960;
-  canvas.height = 720;
+  canvas = document.getElementById("Animation");
+  var heightRatio = .75;
+  canvas.height = canvas.width*heightRatio;
 
   //Create sprite sheet
   fireImage = new Image();
