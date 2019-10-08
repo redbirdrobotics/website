@@ -30,7 +30,16 @@
 (function() {
   var fire,
   fireImage,
-  canvas;
+  canvas,
+  alpha = 1,
+  redBirdAlpha = 0,
+  delta = 0.2,
+  rxintemp=366,
+  rxinfinal=111,
+  rxtemp = 459,
+  rxfinal = 482,
+  brxintemp = 170,
+  brxinfinal = 354;
 
   function gameLoop () {
 
@@ -53,6 +62,8 @@
 		that.height = options.height;
 		that.image = options.image;
 
+
+
 		that.update = function () {
 
             tickCount += 1;
@@ -74,7 +85,51 @@
 		  // Clear the canvas
 		  that.context.clearRect(0, 0, that.width, that.height);
 
+      //Draw Rs
+      if(frameIndex>12){
+       rxintemp = ((rxintemp-7>=rxinfinal) ? rxintemp-7 : rxinfinal);
+       if(rxintemp == rxinfinal){
+         rxtemp = ((rxtemp+7<=rxfinal) ? rxtemp+7 : rxfinal);
+       }
+        that.context.drawImage(
+          rImage,
+          rxintemp,
+          67,
+          255,
+          301,
+          rxtemp,
+          154,
+          197.625,
+          233.275);
+        brxintemp = ((brxintemp+4.7<=brxinfinal) ? brxintemp+4.7 : brxinfinal);
+        that.context.drawImage(
+          brImage,
+          brxintemp,
+          67,
+          255,
+          301,
+          277,//brxtemp,
+          154,
+          197.625,
+          233.275);
+      }
+
+      //Draw Redbird
+      if(frameIndex>8){
+        if (redBirdAlpha<=1){
+          redBirdAlpha += delta;
+        }
+        that.context.globalAlpha = redBirdAlpha;
+        that.context.drawImage(
+          redBirdImage,
+          400,
+          150,
+          187.25,
+          235.25);
+      }
+
 		  // Draw the animation
+      that.context.globalAlpha = alpha;
 		  that.context.drawImage(
 		    that.image,
 		    frameIndex * that.width / numberOfFrames,
@@ -85,6 +140,8 @@
 		    0,
 		    that.width / numberOfFrames,
 		    that.height);
+
+
 		};
 
 		return that;
@@ -97,6 +154,9 @@
 
   //Create sprite sheet
   fireImage = new Image();
+  redBirdImage = new Image();
+  rImage = new Image();
+  brImage = new Image();
 
   // Create sprite
   fire = sprite({
@@ -105,11 +165,14 @@
     height: 720,
     image: fireImage,
     numberOfFrames: 24,
-    ticksPerFrame: 2
+    ticksPerFrame: 1
   });
 
   //Load sprite sheet
   fireImage.addEventListener("load", gameLoop);
   fireImage.src = "assets/images/Fire_sprite.png";
+  redBirdImage.src = "assets/images/redbird.png";
+  rImage.src = "assets/images/R.png";
+  brImage.src = "assets/images/Backwards_R.png";
 
 } ());
