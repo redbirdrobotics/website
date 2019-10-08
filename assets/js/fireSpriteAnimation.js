@@ -36,21 +36,21 @@
   delta = 0.2,
   rxintemp=366,
   rxinfinal=111,
-  rxtemp = 459,
-  rxfinal = 482,
+  rxtemp = 243,
+  rxfinal = 273,
   brxintemp = 170,
   brxinfinal = 354,
   phase1 = true,
   phase2 = false,
   phase3 = false,
   phase4 = false,
-  x1=200,
-  x2=730,
-  y1=100,
-  y2=450,
-  xcenter=465,
-  temp1=465,
-  temp2=465;
+  x1=10,
+  x2=520,
+  y1=10,
+  y2=360,
+  xcenter=265,
+  temp1=265,
+  temp2=265;
 
   function gameLoop () {
 
@@ -104,11 +104,11 @@
         ctx.beginPath();
         if(phase1 == true){
           //line 1
-          temp1 = ((temp1-2>=x1)?temp1-2:x1);
+          temp1 = ((temp1-10>=x1)?temp1-10:x1);
           ctx.moveTo(xcenter,y1);
           ctx.lineTo(temp1,y1);
           //line 2
-          temp2 = ((temp2+2<=x2)?temp2+2:x2);
+          temp2 = ((temp2+10<=x2)?temp2+10:x2);
           ctx.moveTo(xcenter,y1);
           ctx.lineTo(temp2,y1);
           //Check if phase1 is over
@@ -123,20 +123,19 @@
           ctx.moveTo(x1,y1);
           ctx.lineTo(x2,y1);
           //line 1
-          temp1 = ((temp1+2<=(y2+10))?temp1+2:y2+10);
+          temp1 = ((temp1+10<=(y2+10))?temp1+10:y2+10);
           ctx.moveTo(x1+10,y1+10);
           ctx.lineTo(x1+10,temp1);
           //line 2
           ctx.moveTo(x2-10,y1+10);
           ctx.lineTo(x2-10,temp1);
           //Check if phase1 is over
-          if(temp1 == y2){
+          if(temp1 == y2+10){
             phase2 = false;
             phase3 = true;
             temp1=x1;
             temp2=x2;
           }
-
         }else if (phase3 == true) {
           //maintain phases 1&2
           ctx.moveTo(x1,y1);
@@ -146,11 +145,11 @@
           ctx.moveTo(x2-10,y1+10);
           ctx.lineTo(x2-10,y2);
           //line 1
-          temp1 = ((temp1+2<=xcenter)?temp1+2:xcenter);
+          temp1 = ((temp1+10<=xcenter)?temp1+10:xcenter);
           ctx.moveTo(x1+10,y2-10);
           ctx.lineTo(temp1,y2-10);
           //line 2
-          temp2 = ((temp2-2>=xcenter)?temp2-2:xcenter);
+          temp2 = ((temp2-10>=xcenter)?temp2-10:xcenter);
           ctx.moveTo(x2-10,y2-10);
           ctx.lineTo(temp2,y2-10);
           if((temp1 == xcenter) && (temp2 == xcenter)){
@@ -183,7 +182,7 @@
           255,
           301,
           rxtemp,
-          154,
+          69,
           197.625,
           233.275);
         brxintemp = ((brxintemp+4.7<=brxinfinal) ? brxintemp+4.7 : brxinfinal);
@@ -193,8 +192,8 @@
           67,
           255,
           301,
-          277,//brxtemp,
-          154,
+          65,//brxtemp,
+          69,
           197.625,
           233.275);
       }
@@ -207,8 +206,8 @@
         that.context.globalAlpha = redBirdAlpha;
         that.context.drawImage(
           redBirdImage,
-          400,
-          150,
+          190,
+          65,
           187.25,
           235.25);
       }
@@ -221,8 +220,8 @@
 		    0,
 		    that.width / numberOfFrames,
 		    that.height,
-		    0,
-		    0,
+		    -210,
+		    -120,
 		    that.width / numberOfFrames,
 		    that.height);
 
@@ -234,8 +233,8 @@
 
   // Get canvas
   canvas = document.getElementById("Animation");
-  var heightRatio = .75;
-  canvas.height = canvas.width*heightRatio;
+  canvas.width = 530;
+  canvas.height = 360
 
   //Create sprite sheet
   fireImage = new Image();
