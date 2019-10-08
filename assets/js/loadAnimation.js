@@ -27,7 +27,7 @@
             clearTimeout(id);
         };
 }());
-(function() {
+function load() {
   var fire,
   fireImage,
   canvas,
@@ -50,7 +50,8 @@
   y2=360,
   xcenter=265,
   temp1=265,
-  temp2=265;
+  temp2=265,
+  tempAlpha=1;
 
   function gameLoop () {
 
@@ -166,6 +167,16 @@
           ctx.lineTo(x2-10,y2);
           ctx.moveTo(x1+10,y2-10);
           ctx.lineTo(x2-10,y2-10);
+          setTimeout(function () {
+            tempAlpha = ((tempAlpha-0.1)>0 ? tempAlpha-0.1 : 0);
+            redBirdAlpha = tempAlpha;
+            alpha = tempAlpha;
+            ctx.globalAlpha = tempAlpha;
+            if (alpha == 0){
+              canvas.width = 0;
+              canvas.height=0;
+            }
+          }, 500);
         }
         ctx.stroke();
       }
@@ -259,4 +270,4 @@
   rImage.src = "assets/images/R.png";
   brImage.src = "assets/images/Backwards_R.png";
 
-} ());
+};
