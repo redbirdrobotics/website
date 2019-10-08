@@ -39,7 +39,18 @@
   rxtemp = 459,
   rxfinal = 482,
   brxintemp = 170,
-  brxinfinal = 354;
+  brxinfinal = 354,
+  phase1 = true,
+  phase2 = false,
+  phase3 = false,
+  phase4 = false,
+  x1=200,
+  x2=730,
+  y1=100,
+  y2=450,
+  xcenter=465,
+  temp1=465,
+  temp2=465;
 
   function gameLoop () {
 
@@ -85,6 +96,80 @@
 		  // Clear the canvas
 		  that.context.clearRect(0, 0, that.width, that.height);
 
+      if(frameIndex>13){
+        ctx = that.context;
+        //Draw Border
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = "white";
+        ctx.beginPath();
+        if(phase1 == true){
+          //line 1
+          temp1 = ((temp1-2>=x1)?temp1-2:x1);
+          ctx.moveTo(xcenter,y1);
+          ctx.lineTo(temp1,y1);
+          //line 2
+          temp2 = ((temp2+2<=x2)?temp2+2:x2);
+          ctx.moveTo(xcenter,y1);
+          ctx.lineTo(temp2,y1);
+          //Check if phase1 is over
+          if((temp1 == x1) && (temp2 == x2)){
+            phase1 = false;
+            phase2 = true;
+            temp1 = 108;
+            temp2 = temp1;
+          }
+        }else if (phase2 == true) {
+          //maintain phase 1
+          ctx.moveTo(x1,y1);
+          ctx.lineTo(x2,y1);
+          //line 1
+          temp1 = ((temp1+2<=(y2+10))?temp1+2:y2+10);
+          ctx.moveTo(x1+10,y1+10);
+          ctx.lineTo(x1+10,temp1);
+          //line 2
+          ctx.moveTo(x2-10,y1+10);
+          ctx.lineTo(x2-10,temp1);
+          //Check if phase1 is over
+          if(temp1 == y2){
+            phase2 = false;
+            phase3 = true;
+            temp1=x1;
+            temp2=x2;
+          }
+
+        }else if (phase3 == true) {
+          //maintain phases 1&2
+          ctx.moveTo(x1,y1);
+          ctx.lineTo(x2,y1);
+          ctx.moveTo(x1+10,y1+10);
+          ctx.lineTo(x1+10,y2);
+          ctx.moveTo(x2-10,y1+10);
+          ctx.lineTo(x2-10,y2);
+          //line 1
+          temp1 = ((temp1+2<=xcenter)?temp1+2:xcenter);
+          ctx.moveTo(x1+10,y2-10);
+          ctx.lineTo(temp1,y2-10);
+          //line 2
+          temp2 = ((temp2-2>=xcenter)?temp2-2:xcenter);
+          ctx.moveTo(x2-10,y2-10);
+          ctx.lineTo(temp2,y2-10);
+          if((temp1 == xcenter) && (temp2 == xcenter)){
+            phase3 = false;
+            phase4 = true;
+          }
+        }else if (phase4 == true) {
+          //maintain phases
+          ctx.moveTo(x1,y1);
+          ctx.lineTo(x2,y1);
+          ctx.moveTo(x1+10,y1+10);
+          ctx.lineTo(x1+10,y2);
+          ctx.moveTo(x2-10,y1+10);
+          ctx.lineTo(x2-10,y2);
+          ctx.moveTo(x1+10,y2-10);
+          ctx.lineTo(x2-10,y2-10);
+        }
+        ctx.stroke();
+      }
       //Draw Rs
       if(frameIndex>12){
        rxintemp = ((rxintemp-7>=rxinfinal) ? rxintemp-7 : rxinfinal);
