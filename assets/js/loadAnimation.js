@@ -245,7 +245,7 @@ function load() {
   // Get canvas
   canvas = document.getElementById("Animation");
   canvas.width = 530;
-  canvas.height = 360
+  canvas.height = 550;
 
   //Create sprite sheet
   fireImage = new Image();
