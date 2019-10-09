@@ -27,7 +27,7 @@
             clearTimeout(id);
         };
 }());
-function load() {
+(function() {
   var fire,
   fireImage,
   canvas,
@@ -167,7 +167,7 @@ function load() {
           ctx.lineTo(x2-10,y2);
           ctx.moveTo(x1+10,y2-10);
           ctx.lineTo(x2-10,y2-10);
-          setTimeout(function () {
+          /*setTimeout(function () {
             tempAlpha = ((tempAlpha-0.1)>0 ? tempAlpha-0.1 : 0);
             redBirdAlpha = tempAlpha;
             alpha = tempAlpha;
@@ -176,7 +176,7 @@ function load() {
               canvas.width = 0;
               canvas.height=0;
             }
-          }, 500);
+          }, 500);*/
         }
         ctx.stroke();
       }
@@ -270,4 +270,4 @@ function load() {
   rImage.src = "assets/images/R.png";
   brImage.src = "assets/images/Backwards_R.png";
 
-};
+})();
