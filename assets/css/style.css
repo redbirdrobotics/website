@@ -21,5 +21,17 @@ body{
   vertical-align: middle;
 }
 
+p, h1, h2, h3, h4{
+  color: white;
+}
+
+nav{
+  border-bottom: 5px solid red;
+}
+
+.white{
+  border-top: 5px solid red;
+  background-color:white;
+}
 
 /* TODO: Media breakouts for logo to properly scale with size of screen */
