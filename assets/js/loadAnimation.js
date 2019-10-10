@@ -48,6 +48,7 @@
   x2=520,
   y1=40,
   y2=390,
+  rate=7,
   xcenter=265,
   temp1=265,
   temp2=265,
@@ -105,11 +106,11 @@
         ctx.beginPath();
         if(phase1 == true){
           //line 1
-          temp1 = ((temp1-10>=x1)?temp1-10:x1);
+          temp1 = ((temp1-rate>=x1)?temp1-rate:x1);
           ctx.moveTo(xcenter,y1);
           ctx.lineTo(temp1,y1);
           //line 2
-          temp2 = ((temp2+10<=x2)?temp2+10:x2);
+          temp2 = ((temp2+rate<=x2)?temp2+rate:x2);
           ctx.moveTo(xcenter,y1);
           ctx.lineTo(temp2,y1);
           //Check if phase1 is over
@@ -124,7 +125,7 @@
           ctx.moveTo(x1,y1);
           ctx.lineTo(x2,y1);
           //line 1
-          temp1 = ((temp1+10<=(y2+10))?temp1+10:y2+10);
+          temp1 = ((temp1+rate<=(y2+10))?temp1+rate:y2+10);
           ctx.moveTo(x1+10,y1+10);
           ctx.lineTo(x1+10,temp1);
           //line 2
@@ -146,11 +147,11 @@
           ctx.moveTo(x2-10,y1+10);
           ctx.lineTo(x2-10,y2);
           //line 1
-          temp1 = ((temp1+10<=xcenter)?temp1+10:xcenter);
+          temp1 = ((temp1+rate<=xcenter)?temp1+rate:xcenter);
           ctx.moveTo(x1+10,y2-10);
           ctx.lineTo(temp1,y2-10);
           //line 2
-          temp2 = ((temp2-10>=xcenter)?temp2-10:xcenter);
+          temp2 = ((temp2-rate>=xcenter)?temp2-rate:xcenter);
           ctx.moveTo(x2-10,y2-10);
           ctx.lineTo(temp2,y2-10);
           if((temp1 == xcenter) && (temp2 == xcenter)){
