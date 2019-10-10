@@ -46,8 +46,8 @@
   phase4 = false,
   x1=10,
   x2=520,
-  y1=10,
-  y2=360,
+  y1=40,
+  y2=390,
   xcenter=265,
   temp1=265,
   temp2=265,
@@ -193,7 +193,7 @@
           255,
           301,
           rxtemp,
-          69,
+          99,
           197.625,
           233.275);
         brxintemp = ((brxintemp+4.7<=brxinfinal) ? brxintemp+4.7 : brxinfinal);
@@ -204,7 +204,7 @@
           255,
           301,
           65,//brxtemp,
-          69,
+          99,
           197.625,
           233.275);
       }
@@ -218,7 +218,7 @@
         that.context.drawImage(
           redBirdImage,
           190,
-          65,
+          95,
           187.25,
           235.25);
       }
@@ -232,7 +232,7 @@
 		    that.width / numberOfFrames,
 		    that.height,
 		    -210,
-		    -120,
+		    -90,
 		    that.width / numberOfFrames,
 		    that.height);
 
@@ -244,8 +244,8 @@
 
   // Get canvas
   canvas = document.getElementById("Animation");
-  canvas.width = 530;
-  canvas.height = 550;
+  canvas.width = 800; //was 530
+  canvas.height = 800; //was 550
 
   //Create sprite sheet
   fireImage = new Image();
