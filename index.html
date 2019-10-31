@@ -13,44 +13,41 @@
   - Make Nav bar (Fun little sprite animation for nav?)
   - Make main page Graphic
   - Brief "About, Mission, Leaders, and Sponsors"
+    - About page is be on the main page
+    - Overview of Mission page will be on main page
+      - In-depth details about the mission will be on Projects page
+      - Team page will contain Leaders on top then team members
   - Make Team page (Figure out fun "get to know the team")
   - "Contact us"
   - When spit-ball develops more, "What we have done"
+  - What if JS is disabled?
   - Blog/Monthly News Letter?
   - Backend?
   - Easter Eggs? (Linux Terminal, Konami Code)
   -->
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="navbar-brand" href="#">
-              <img src="assets\images\banner_logo_1.png" width="70px" height="auto" alt="">
+              <img src="assets\images\banner_logo_1.png" class="logo" alt="">
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            <a class="nav-link" href="#">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="#">Projects</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sponsors</a>
+          </li>
+          <!-- Future Pages go here:
+            "Projects" - Tells what projects the team works on over a given year
+            "Sponsors" - Obvious
+          -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
     <div class="outer">
@@ -60,59 +57,27 @@
         </div>
       </div>
     </div>
-    <div id="Body">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <div id="body">
-        <div class="container-fluid code1-header" style="margin-bottom: 0">
-           <div class="container">
-              <div class="row">
-                 <div class="col-md-12">
-                   <br/>
-                   <br/>
-                   <br/>
-                    <h1>Hello, we are Redbird Robotics!</h1>
-                    <p align="justify">Redbird Robotics's Goal is to bring together multiple engineering disciplines to provide practical, real world experience for students through competitive robotic design and creation. Currently, we are working on an entry for the <a href="http://www.aerialroboticscompetition.org/">International Aerial Robotics Competition (IARC) Mission 9</a>.
-                       <br />
-                       <br /> Team members participate in all aspects of robotic design from concept design and manufacturing to programming. Our team is a diverse collection of electrical, mechanical, and computer engineering students looking to apply the apply the knowloedge they learn in the class room.
-                       <br/>
-                       <br/>
-                    </p>
-                 </div>
+    <div> <!--Real start of the body-->
+        <div class="container-fluid">
+           <div class="container-rr">
+              <img src="assets\images\redbird.png" alt="Redbird" class="redbird float-left pt-5 pull-left mr-5">
+              <div class="main-text">
+                <p class="p-heading">Hello, we are</p>
+                <h1 class="h1-heading">Redbird Robotics</h1>
+                <h2 class-"h2-heading">We're not first floor people</h2>
+                <p>Redbird Robotics's Goal is to bring together multiple engineering disciplines to provide practical, real world experience for students through competitive robotic design and creation. Currently, we are working on an entry for the <a href="http://www.aerialroboticscompetition.org/">International Aerial Robotics Competition (IARC) Mission 9</a></p>
+                <p><br/>Team members participate in all aspects of robotic design from concept design and manufacturing to programming. Our team is a diverse collection of Computer, Electrical, and Mechanical Engineering students looking to apply the knowledge they learn in the classroom. </p>
               </div>
            </div>
         </div>
+        <div>
+      <div class="container-fluid">
+        <div class="container-rr" style="padding-top: 300px;">
+          <h2>Our Current Mission</h2>
+          <p> </p>
+        </div>
+      </div>
+        <!--
         <div class="container-fluid circuit3-header">
             <div class="container">
                 <div class="row">
@@ -165,7 +130,7 @@
                 </div>
             </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- Footer -->
     <footer class="page-footer font-small white">
