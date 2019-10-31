@@ -14,7 +14,7 @@ html{
 .outer {
   display: table;
   position: absolute;
-  top: 0;
+  top: 10;
   left: 0;
   height: 100%;
   width: 100%;
@@ -166,7 +166,7 @@ a:hover{
 }
 
 /* Fade for body */
-#body p, #body h1, #body h2, #body img, nav, footer{
+#main-body p, #main-body h1, #main-body h2, #main-body img, #main-nav, #main-footer{
     -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 6s; /* Firefox < 16 */
         -ms-animation: fadein 6s; /* Internet Explorer */
