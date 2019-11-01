@@ -47,6 +47,14 @@ nav{
   box-shadow: 0px 10px 10px black;
   font-family: 'Roboto', sans-serif;
 }
+
+.navbar-rr{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 li{
   margin: auto;
   font-family: 'Roboto', sans-serif;
@@ -75,6 +83,7 @@ li{
    transform: scaleX(-1);
    width:40%;
    height: auto;
+   z-index: 0;
 }
 .p-heading{
   margin-bottom: -5px;
@@ -138,6 +147,14 @@ li{
 
 .footer-top-row-spacing{
   margin-bottom: -10px;
+}
+
+.top-paragraph-main{
+  padding-top: 5em;
+}
+
+.top-paragraph{
+  padding-top: 6em;
 }
 
 .bottom-paragraph{
