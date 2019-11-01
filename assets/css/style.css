@@ -13,6 +13,7 @@ html{
 }
 
 .containter-canvas{
+  margin-top:-200px;
   margin-right: auto;
   margin-left: auto;
   width: 800px;
@@ -94,6 +95,11 @@ li{
   width: 75%;
 }
 
+.container-rr-flex{
+  flex: 1 0 auto;
+  width: 75%;
+}
+
 .footer-p{
   font-size: 16px;
 }
@@ -136,6 +142,11 @@ li{
 
 .bottom-paragraph{
   padding-bottom: 2em;
+}
+
+
+.vertical-align-center{
+  vertical-align: middle
 }
 
 ul{

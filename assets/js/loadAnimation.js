@@ -46,8 +46,8 @@
   phase4 = false,
   x1=10,
   x2=520,
-  y1=40,
-  y2=390,
+  y1=10,
+  y2=360,
   rate=7,
   xcenter=265,
   temp1=265,
@@ -188,15 +188,15 @@
          rxtemp = ((rxtemp+7<=rxfinal) ? rxtemp+7 : rxfinal);
        }
         that.context.drawImage(
-          rImage,
-          rxintemp,
-          67,
-          255,
-          301,
-          rxtemp,
-          99,
-          197.625,
-          233.275);
+          rImage,   //image
+          rxintemp, //sx
+          67,       //sy
+          255,      //sWidth
+          301,      //sHeight
+          rxtemp,   //dx
+          69,       //dy
+          197.625,  //dWidth
+          233.275); //dHeight
         brxintemp = ((brxintemp+4.7<=brxinfinal) ? brxintemp+4.7 : brxinfinal);
         that.context.drawImage(
           brImage,
@@ -205,7 +205,7 @@
           255,
           301,
           65,//brxtemp,
-          99,
+          69,
           197.625,
           233.275);
       }
@@ -219,7 +219,7 @@
         that.context.drawImage(
           redBirdImage,
           190,
-          95,
+          65,
           187.25,
           235.25);
       }
@@ -233,7 +233,7 @@
 		    that.width / numberOfFrames,
 		    that.height,
 		    -210,
-		    -90,
+		    -60,
 		    that.width / numberOfFrames,
 		    that.height);
 
