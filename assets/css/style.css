@@ -255,13 +255,14 @@ a:hover{
 }
 
 /* Fade for body */
-.main-body p, .main-body h1, .main-body h2, .main-body img, .main-body nav, .main-body footer{
+.main-body p, .main-body h1, .main-body h2, .main-body img, .main-body footer{
     -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 6s; /* Firefox < 16 */
         -ms-animation: fadein 6s; /* Internet Explorer */
          -o-animation: fadein 6s; /* Opera < 12.1 */
             animation: fadein 6s;
 }
+
 @keyframes fadein {
     0%   { opacity: 0; }
     66%  { opacity: 0; }
@@ -287,6 +288,41 @@ a:hover{
   0%   { opacity: 0; }
   80%  { opacity: 0; }
   100% { opacity: 1; }
+}
+
+.slide-down-nav{
+  -webkit-animation: slidein 6s forwards; /* Safari 4.0 - 8.0 */
+     -moz-animation: slidein 6s forwards;
+      -ms-animation: slidein 6s forwards;
+       -o-animation: slidein 6s forwards;
+          animation: slidein 6s forwards;
+}
+
+@keyframes slidein {
+  0%   { top: -95px; }
+  66%  { top: -95px; }
+  100% { top: 0px; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes slidein {
+  0%   { top: -95px; }
+  66%  { top: -95px; }
+  100% { top: 0px; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes slidein {
+  0%   { top: -95px; }
+  66%  { top: -95px; }
+  100% { top: 0px; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes slidein {
+  0%   { top: -95px; }
+  66%  { top: -95px; }
+  100% { top: 0px; }
 }
 
 /* TODO: Media breakouts for logo to properly scale with size of screen */

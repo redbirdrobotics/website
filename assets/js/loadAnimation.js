@@ -65,6 +65,7 @@
       localStorage.setItem("AnimationPlayed","true");
     }else{
       $('.main-body').removeClass('main-body');
+      $('.slide-down-nav').removeClass('slide-down-nav');
     }
   }
 
