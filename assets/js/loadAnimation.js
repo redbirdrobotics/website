@@ -57,9 +57,15 @@
   function gameLoop () {
 
     window.requestAnimationFrame(gameLoop);
-
-    fire.update();
-    fire.render();
+    if(typeof(localStorage.getItem("AnimationPlayed")) != null && localStorage.getItem("AnimationPlayed") != "true"){
+      fire.update();
+      fire.render();
+      console.log("Am Here");
+      console.log(localStorage.getItem("AnimationPlayed"));
+      localStorage.setItem("AnimationPlayed","true");
+    }else{
+      $('.main-body').removeClass('main-body');
+    }
   }
 
   function sprite (options) {
@@ -239,7 +245,6 @@
 
 
 		};
-
 		return that;
 	}
 
@@ -253,16 +258,15 @@
   redBirdImage = new Image();
   rImage = new Image();
   brImage = new Image();
-
-  // Create sprite
-  fire = sprite({
-    context: canvas.getContext("2d"),
-    width: 23040,
-    height: 720,
-    image: fireImage,
-    numberOfFrames: 24,
-    ticksPerFrame: 2
-  });
+    // Create sprite
+    fire = sprite({
+      context: canvas.getContext("2d"),
+      width: 23040,
+      height: 720,
+      image: fireImage,
+      numberOfFrames: 24,
+      ticksPerFrame: 2
+    });
 
   //Load sprite sheet
   fireImage.addEventListener("load", gameLoop);

@@ -255,7 +255,7 @@ a:hover{
 }
 
 /* Fade for body */
-#main-body p, #main-body h1, #main-body h2, #main-body img, #main-nav, #main-footer{
+.main-body p, .main-body h1, .main-body h2, .main-body img, .main-body nav, .main-body footer{
     -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 6s; /* Firefox < 16 */
         -ms-animation: fadein 6s; /* Internet Explorer */
@@ -288,4 +288,5 @@ a:hover{
   80%  { opacity: 0; }
   100% { opacity: 1; }
 }
+
 /* TODO: Media breakouts for logo to properly scale with size of screen */
