@@ -31,28 +31,28 @@
   var fire,
   fireImage,
   canvas,
-  alpha = 1,
+  alpha        = 1,
   redBirdAlpha = 0,
-  delta = 0.2,
-  rxintemp=366,
-  rxinfinal=111,
-  rxtemp = 243,
-  rxfinal = 273,
-  brxintemp = 170,
-  brxinfinal = 354,
-  phase1 = true,
-  phase2 = false,
-  phase3 = false,
-  phase4 = false,
-  x1=10,
-  x2=520,
-  y1=10,
-  y2=360,
-  rate=7,
-  xcenter=265,
-  temp1=265,
-  temp2=265,
-  tempAlpha=1;
+  delta        = 0.2,
+  rxintemp     = 366,
+  rxinfinal    = 111,
+  rxtemp       = 243,
+  rxfinal      = 273,
+  brxintemp    = 170,
+  brxinfinal   = 354,
+  phase1       = true,
+  phase2       = false,
+  phase3       = false,
+  phase4       = false,
+  x1           = 10,
+  x2           = 520,
+  y1           = 10,
+  y2           = 360,
+  rate         = 7,
+  xcenter      = 265,
+  temp1        = 265,
+  temp2        = 265,
+  tempAlpha    = 1;
 
   function gameLoop () {
 
@@ -60,8 +60,6 @@
     if(typeof(localStorage.getItem("AnimationPlayed")) != null && localStorage.getItem("AnimationPlayed") != "true"){
       fire.update();
       fire.render();
-      console.log("Am Here");
-      console.log(localStorage.getItem("AnimationPlayed"));
       localStorage.setItem("AnimationPlayed","true");
     }else{
       $('.main-body').removeClass('main-body');
