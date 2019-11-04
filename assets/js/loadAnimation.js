@@ -57,14 +57,8 @@
   function gameLoop () {
 
     window.requestAnimationFrame(gameLoop);
-    if(typeof(localStorage.getItem("AnimationPlayed")) != null && localStorage.getItem("AnimationPlayed") != "true"){
       fire.update();
       fire.render();
-      localStorage.setItem("AnimationPlayed","true");
-    }else{
-      $('.main-body').removeClass('main-body');
-      $('.slide-down-nav').removeClass('slide-down-nav');
-    }
   }
 
   function sprite (options) {
@@ -182,6 +176,7 @@
               canvas.width = 0;
               canvas.height=0;
             }
+            enableScroll();
           }, 500);
         }
         ctx.stroke();
@@ -268,10 +263,58 @@
     });
 
   //Load sprite sheet
-  fireImage.addEventListener("load", gameLoop);
-  fireImage.src = "assets/images/Fire_sprite.png";
-  redBirdImage.src = "assets/images/redbird.png";
-  rImage.src = "assets/images/R.png";
-  brImage.src = "assets/images/Backwards_R.png";
+  if(sessionStorage.getItem("RR-AnimationPlayed") != "true"){
+    disableScroll();
+    fireImage.addEventListener("load", gameLoop);
+    fireImage.src = "assets/images/Fire_sprite.png";
+    redBirdImage.src = "assets/images/redbird.png";
+    rImage.src = "assets/images/R.png";
+    brImage.src = "assets/images/Backwards_R.png";
+    console.log("You suck some times");
+    sessionStorage.setItem("RR-AnimationPlayed","true");
+  }else{
+    $('.main-body').removeClass('main-body');
+    $('.slide-down-nav').removeClass('slide-down-nav');
+  }
 
 })();
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disableScroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  document.addEventListener('wheel', preventDefault, {passive: false}); // Disable scrolling in Chrome
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
+  document.onkeydown  = preventDefaultForScrollKeys;
+  $('body').bind('touchmove', function(e){e.preventDefault()}) //For mobile devices
+}
+
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    document.removeEventListener('wheel', preventDefault, {passive: false}); // Enable scrolling in Chrome
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
+    $('body').unbind('touchmove');
+}
