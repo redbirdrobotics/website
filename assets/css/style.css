@@ -2,6 +2,9 @@ body{
   background-color:#2c2c2c;
   font-family: 'Roboto', sans-serif;
 }
+html{
+  background-color: black;
+}
 .containter-canvas{
   margin-right: auto;
   margin-left: auto;
@@ -51,11 +54,6 @@ li{
 .gray{
   border-top: 5px solid  	#AD1E24;
   background-color: #2c2c2c;
-}
-
-#body{
-  border-top: 5px solid  	#AD1E24;
-  background: white;
 }
 
 .center{
@@ -115,14 +113,24 @@ li{
   content: url(assets\images\iconmonstr-instagram-11-240_red.png) no-repeat;
 }
 
-#cf-git {
-  position:relative;
-  margin:0 auto;
+.footer-spacing{
+  margin-bottom: -50px;
 }
 
-#cf-git img {
+.footer-top-row-spacing{
+  margin-bottom: -20px;
+}
+
+.bottom-paragraph{
+  padding-bottom: 2em;
+}
+
+#cf {
+  position:relative;
+}
+
+#cf img {
   position:absolute;
-  left:0;
 }
 
 #cf img.top:hover {
@@ -130,7 +138,7 @@ li{
 }
 
 footer{
-  padding-top: 2em;
+  padding-top: 1em;
   background-color: #0C0C0C;
 }
 
@@ -155,5 +163,40 @@ a{
 
 a:hover{
   color:#AD1E24
+}
+
+/* Fade for body */
+#body p, #body h1, #body h2, #body img, nav, footer{
+    -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 6s; /* Firefox < 16 */
+        -ms-animation: fadein 6s; /* Internet Explorer */
+         -o-animation: fadein 6s; /* Opera < 12.1 */
+            animation: fadein 6s;
+}
+@keyframes fadein {
+    0%   { opacity: 0; }
+    66%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  0%   { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
 }
 /* TODO: Media breakouts for logo to properly scale with size of screen */
