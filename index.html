@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <!-- TODO:
-  - Make Nav bar (Fun little sprite animation for nav?)
-  - Make main page Graphic
-  - Brief "About, Mission, Leaders, and Sponsors"
-    - About page is be on the main page
-    - Overview of Mission page will be on main page
+  - Make Nav bar (Fun little sprite animation for nav?) - DONE
+  - Make main page Graphic -DONE
+  - Brief "About, Mission, Leaders, and Sponsors" -DONE
+    - About page is be on the main page -DONE
+    - Overview of Mission page will be on main page -DONE
       - In-depth details about the mission will be on Projects page
       - Team page will contain Leaders on top then team members
+  - Moblie View
   - Make Team page (Figure out fun "get to know the team")
   - "Contact us"
   - When spit-ball develops more, "What we have done"
@@ -24,29 +25,26 @@
   - Blog/Monthly News Letter?
   - Backend?
   - Easter Eggs? (Linux Terminal, Konami Code)
+  - investigate refresh rate to animation speed.
   -->
-  <body>
-    <nav class="navbar navbar-expand-lg">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <body class="main-body">
+    <nav class="navbar-rr navbar navbar-expand-lg slide-down-nav">
+      <div id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.html">
               <img src="assets\images\banner_logo_1.png" class="logo" alt="">
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
+            <a class="nav-link" href="team.html"> Team </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="projects.html"> Projects </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sponsors</a>
+            <a class="nav-link" href="sponsors.html"> Sponsors </a>
           </li>
-          <!-- Future Pages go here:
-            "Projects" - Tells what projects the team works on over a given year
-            "Sponsors" - Obvious
-          -->
         </ul>
       </div>
     </nav>
@@ -57,89 +55,43 @@
         </div>
       </div>
     </div>
-    <div id="body"> <!--Real start of the body-->
+    <main>
+      <div> <!--Real start of the body-->
         <div class="container-fluid">
-           <div class="container-rr">
-              <img src="assets\images\redbird.png" alt="Redbird" class="redbird float-left pt-5 pull-left mr-5">
-              <div class="main-text">
-                <p class="p-heading">Hello, we are</p>
-                <h1 class="h1-heading">Redbird Robotics.</h1>
-                <h2 class="h2-heading">We're not first floor people.</h2>
-                <p>Redbird Robotics's Goal is to bring together multiple engineering disciplines to provide practical, real world experience for students through competitive robotic design and creation. Currently, we are working on an entry for the <a href="http://www.aerialroboticscompetition.org/"> International Aerial Robotics Competition (IARC) Mission 9 </a> </p>
-                <p><br/>Team members participate in all aspects of robotic design from concept design and manufacturing to programming. Our team is a diverse collection of Computer, Electrical, and Mechanical Engineering students looking to apply the knowledge they learn in the classroom. </p>
-              </div>
-           </div>
+          <div class="container-rr top-paragraph-main">
+            <img src="assets\images\redbird.png" class="redbird float-left pt-5 pull-left mr-5">
+            <div class="main-text">
+              <p class="p-heading">Hello, we are</p>
+              <h1 class="h1-heading">Redbird Robotics.</h1>
+              <h2 class="h2-heading">We're not first floor people.</h2>
+              <p>Redbird Robotics's Goal is to bring together multiple engineering disciplines to provide practical, real world experience for students through competitive robotic design and creation.
+                Currently, we are working on an entry for the <a href="http://www.aerialroboticscompetition.org/"> International Aerial Robotics Competition (IARC) Mission 9 </a> </p>
+              <p><br/>Team members participate in all aspects of robotic design from concept design and manufacturing to programming. Our team is a diverse collection of Computer, Electrical, and Mechanical Engineering students looking to apply the knowledge they learn in the classroom. </p>
+            </div>
+          </div>
         </div>
-        <div>
-      <div class="container-fluid bottom-paragraph">
-        <div class="container-rr" style="padding-top: 300px;">
-          <h2>Our Current Mission</h2>
-          <p>As mentioned in the pervious paragraphs, Redbird Robotics is striving to complete IARC mission 9 this year. IARC is an autonomous aerial robotics competition that dates back 3 decades and drives
-            teams to tackle challenges that are largely impossible for modern autonomous platforms. The IARC mission for 2020 is to fly a fully autonomous aerial robot over a distance of 3km to a boat
-            mast, use the robot to remove a "communications module" attached to the mast as the mast moves with pitch and roll (simulating a boat rocking on waves), attach a new "communications module"
-            to the mast, and return to the starting position in a time limit of 9 minutes. While the team does have experience with autonomous drone technology, we suspect this mission will require more
-            a more <i>mono-wing</i> approach. Meaning This mission will involve rapid prototyping of aerial design, robotic manipulation of an object with a different inertial frame of reference than the
-            aerial platform, and computer vision. The team's current plan is to use a VTOL design to utilize its speed and ability to hover. To learn more about our current designs, please check out the
-            <a href="#">project's page</a>.</p>
+        <div class="container-fluid bottom-paragraph" style="padding-top: 300px;">
+          <div class="container-rr">
+            <h2>Our Current Mission</h2>
+            <p>
+              This year, Redbird Robotics is striving to compete in the International Aerial Robotics Competition (IARC). Since 1991, the AUVSI Foundation has used IARC to challenge students across the
+              world to push the envelope in the field of aerial robotics—requiring students to create fully autonomous aerial vehicles to tackle challenges and problems that would be considered impossible
+              by leaders in industry in each given year. The 2019-2020 competition year will introduce contestants to IARC’s new Mission 9: Fly an aerial robot over 3 kilometers to a moving boat’s mast,
+              remove and replace a "communications module" attached to the boat’s mast, and then return to the starting position. The mission must be accomplished in under 9 minutes, which poses a unique
+              challenge to the team. Our members are experienced in designing and using autonomous quadcopter vehicles, but to create an aircraft capable of meeting the time limit requirement, the team will
+              need to research traditional airplane designs and gain an enhanced understanding of aerodynamics. </p>
+            <br/>
+            <p>
+              For this mission, Redbird Robotics will be investigating rapid prototyping of aerial designs, robotic manipulation of objects with different inertial frames of reference than the aerial
+              platform (our robot), and advanced computer vision capabilities. We currently plan to use a vertical take-off and landing (VTOL) design to take advantage of its high speeds and ability to
+              hover while performing Mission 9 tasks that require precision and dexterity. To learn more about our current designs, please check out the <a href="projects.html">Projects page</a>.
+            </p>
+          </div>
         </div>
       </div>
-        <!--
-        <div class="container-fluid circuit3-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 center">
-                        <h2 class="red"><strong>Meet the Leadership</strong></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="media">
-                        <div class="media-left media-top">
-                            <a href="#"><img class="media-object" src="/home/redbird_general/website_html/assets/img/team_photos/alex_b_sm.jpg"</a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Maxwell Jones</h4>
-                            <p align="justify"> Max will be acting President this semester. </p>
-                            <div><strong>Major:</strong> Electrical Engineering</div>
-                            <div><strong>Year:</strong> Senior</div>
-                            <br/>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left media-top">
-                            <a href="#"><img class="media-object" src="/home/redbird_general/website_html/assets/img/team_photos/alex_r_sm.jpg"</a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Patrick Flowers</h4>
-                            <p>Patrick will be acting as the Vice Prsident this semester. </p>
-                            <div><strong>Major:</strong> Mechanical Engineering </div>
-                            <div><strong>Year:</strong> Senior</div>
-                            <br/>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left media-top">
-
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Lukas Armstrong</h4>
-                            <p>Lukas will be the Project Captain for this semster. Completeing one co-op for Cloud2Gnd and another with the University of Louisville. Lukas want's to test his knowledge of programming and help train other team members inorder to succeed at IARC Mission 9.</p>
-                            <div><strong>Major:</strong> Computer Engineering and Computer Science </div>
-                            <div><strong>Year:</strong> Senior</div>
-                            <div><strong>Email:</strong> George.Armstrong.1@louisville.edu</div>
-                            <br/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div> -->
-    </div>
+    </main>
     <!-- Footer -->
-    <footer class="page-footer font-small footer-spacing">
+    <footer class="page-footer footer-spacing footer-bottom">
       <div class="contact center containter">
         <div class="row justify-content-md-center footer-top-row-spacing">
           <div class="col-3">
@@ -172,21 +124,20 @@
           <div class="col-12">
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
-              <p class="footer-p">Please don't steal our branding. We're enginering students. We don't understand copyright laws.</p>
-              <a href="https://mdbootstrap.com/education/bootstrap/"> RedBirdRobotics.com</a>
+              <p class="footer-p">
+                Please don't steal our branding. We're enginering students. We don't understand copyright laws.
+                &nbsp;<a href="http://RedBirdRobotics.org"> RedBirdRobotics.com</a>
+              </p>
             </div>
             <!-- Copyright -->
           </div>
         </div>
       </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="assets/js/loadAnimation.js"> </script>
+      <script src="assets/js/animation_responsive.js"> </script>
     </footer>
-    <!-- Footer -->
   </body>
-  <footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="assets/js/loadAnimation.js"> </script>
-    <script src="assets/js/animation_responsive.js"> </script>
-  </footer>
 </html>

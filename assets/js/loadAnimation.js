@@ -31,35 +31,34 @@
   var fire,
   fireImage,
   canvas,
-  alpha = 1,
+  alpha        = 1,
   redBirdAlpha = 0,
-  delta = 0.2,
-  rxintemp=366,
-  rxinfinal=111,
-  rxtemp = 243,
-  rxfinal = 273,
-  brxintemp = 170,
-  brxinfinal = 354,
-  phase1 = true,
-  phase2 = false,
-  phase3 = false,
-  phase4 = false,
-  x1=10,
-  x2=520,
-  y1=40,
-  y2=390,
-  rate=7,
-  xcenter=265,
-  temp1=265,
-  temp2=265,
-  tempAlpha=1;
+  delta        = 0.2,
+  rxintemp     = 366,
+  rxinfinal    = 111,
+  rxtemp       = 243,
+  rxfinal      = 273,
+  brxintemp    = 170,
+  brxinfinal   = 354,
+  phase1       = true,
+  phase2       = false,
+  phase3       = false,
+  phase4       = false,
+  x1           = 10,
+  x2           = 520,
+  y1           = 10,
+  y2           = 360,
+  rate         = 7,
+  xcenter      = 265,
+  temp1        = 265,
+  temp2        = 265,
+  tempAlpha    = 1;
 
   function gameLoop () {
 
     window.requestAnimationFrame(gameLoop);
-
-    fire.update();
-    fire.render();
+      fire.update();
+      fire.render();
   }
 
   function sprite (options) {
@@ -177,6 +176,7 @@
               canvas.width = 0;
               canvas.height=0;
             }
+            enableScroll();
           }, 500);
         }
         ctx.stroke();
@@ -188,15 +188,15 @@
          rxtemp = ((rxtemp+7<=rxfinal) ? rxtemp+7 : rxfinal);
        }
         that.context.drawImage(
-          rImage,
-          rxintemp,
-          67,
-          255,
-          301,
-          rxtemp,
-          99,
-          197.625,
-          233.275);
+          rImage,   //image
+          rxintemp, //sx
+          67,       //sy
+          255,      //sWidth
+          301,      //sHeight
+          rxtemp,   //dx
+          69,       //dy
+          197.625,  //dWidth
+          233.275); //dHeight
         brxintemp = ((brxintemp+4.7<=brxinfinal) ? brxintemp+4.7 : brxinfinal);
         that.context.drawImage(
           brImage,
@@ -205,7 +205,7 @@
           255,
           301,
           65,//brxtemp,
-          99,
+          69,
           197.625,
           233.275);
       }
@@ -219,7 +219,7 @@
         that.context.drawImage(
           redBirdImage,
           190,
-          95,
+          65,
           187.25,
           235.25);
       }
@@ -233,13 +233,12 @@
 		    that.width / numberOfFrames,
 		    that.height,
 		    -210,
-		    -90,
+		    -60,
 		    that.width / numberOfFrames,
 		    that.height);
 
 
 		};
-
 		return that;
 	}
 
@@ -253,22 +252,69 @@
   redBirdImage = new Image();
   rImage = new Image();
   brImage = new Image();
-
-  // Create sprite
-  fire = sprite({
-    context: canvas.getContext("2d"),
-    width: 23040,
-    height: 720,
-    image: fireImage,
-    numberOfFrames: 24,
-    ticksPerFrame: 2
-  });
+    // Create sprite
+    fire = sprite({
+      context: canvas.getContext("2d"),
+      width: 23040,
+      height: 720,
+      image: fireImage,
+      numberOfFrames: 24,
+      ticksPerFrame: 2
+    });
 
   //Load sprite sheet
-  fireImage.addEventListener("load", gameLoop);
-  fireImage.src = "assets/images/Fire_sprite.png";
-  redBirdImage.src = "assets/images/redbird.png";
-  rImage.src = "assets/images/R.png";
-  brImage.src = "assets/images/Backwards_R.png";
+  if(sessionStorage.getItem("RR-AnimationPlayed") != "true"){
+    disableScroll();
+    fireImage.addEventListener("load", gameLoop);
+    fireImage.src = "assets/images/Fire_sprite.png";
+    redBirdImage.src = "assets/images/redbird.png";
+    rImage.src = "assets/images/R.png";
+    brImage.src = "assets/images/Backwards_R.png";
+    console.log("You suck some times");
+    sessionStorage.setItem("RR-AnimationPlayed","true");
+  }else{
+    $('.main-body').removeClass('main-body');
+    $('.slide-down-nav').removeClass('slide-down-nav');
+  }
 
 })();
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disableScroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  document.addEventListener('wheel', preventDefault, {passive: false}); // Disable scrolling in Chrome
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
+  document.onkeydown  = preventDefaultForScrollKeys;
+  $('body').bind('touchmove', function(e){e.preventDefault()}) //For mobile devices
+}
+
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    document.removeEventListener('wheel', preventDefault, {passive: false}); // Enable scrolling in Chrome
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
+    $('body').unbind('touchmove');
+}
