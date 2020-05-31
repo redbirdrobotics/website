@@ -255,6 +255,11 @@ a:hover{
   border: 5px solid #AD1E24;
 }
 
+.c_sponsor_image{
+  width:200px;
+  height:auto;
+}
+
 .people-p{
   font-size: 16px;
   padding-left: 2em;
